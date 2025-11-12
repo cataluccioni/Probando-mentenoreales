@@ -10,7 +10,12 @@ st.set_page_config(
 st.title("Mi Chatbot🌸")
 st.title("Responde")
 
-client = Groq(api_key=st.secrets["GROQ_API_KEY"])
+try:
+    groq_api_key = st.secrets["GROQ_API_KEY"]
+except KeyError:
+    groq_api_key = "TU_CLAVE_DE_GROQ_REAL_AQUI" 
+
+client = Groq(api_key=groq_api_key)
 
 
 
@@ -53,3 +58,4 @@ if user_input:
         
     except Exception as e:
         st.error(f"Error: {e}")
+
