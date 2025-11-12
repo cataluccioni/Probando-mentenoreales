@@ -10,7 +10,8 @@ st.set_page_config(
 st.title("Mi Chatbot🌸")
 st.title("Responde")
 
-client = Groq(api_key="API") 
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
+
 
 
 if "messages" not in st.session_state:
